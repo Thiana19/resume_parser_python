@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Parsing Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .result-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Resume Parsing Result</h2>
+        <table>
+            <tr><th colspan="2">Profile</th></tr>
+            <tr><td>Name</td><td>{{ profile['Name'] }}</td></tr>
+            <tr><td>Email</td><td>{{ profile['Email'] }}</td></tr>
+            <tr><td>Phone</td><td>{{ profile['Phone'] }}</td></tr>
+            <tr><td>Location</td><td>{{ profile['Location'] }}</td></tr>
+            <tr><td>Link</td><td>{{ profile['Link'] }}</td></tr>
+            <tr><td>Summary</td><td>{{ profile['Summary'] }}</td></tr>
+        </table>
+
+        <table>
+            <tr><th colspan="2">Education</th></tr>
+            {% for edu in education %}
+                <tr><td>School</td><td>{{ edu['School'] }}</td></tr>
+                <tr><td>Degree</td><td>{{ edu['Degree'] }}</td></tr>
+                <tr><td>GPA</td><td>{{ edu['GPA'] }}</td></tr>
+                <tr><td>Date</td><td>{{ edu['Date'] }}</td></tr>
+                <tr><td>Description</td><td>{{ edu['Description'] }}</td></tr>
+            {% endfor %}
+        </table>
+
+        <table>
+            <tr><th colspan="2">Work Experience</th></tr>
+            {% for exp in experience %}
+                <tr><td>Company</td><td>{{ exp['Company'] }}</td></tr>
+                <tr><td>Job Title</td><td>{{ exp['Job Title'] }}</td></tr>
+                <tr><td>Date</td><td>{{ exp['Date'] }}</td></tr>
+                <tr><td>Description</td><td>{{ exp['Description'] }}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
